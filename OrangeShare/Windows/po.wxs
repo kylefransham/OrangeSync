@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="PO_DIR">
+            <Component Id="cmpA3D2705288DF24B272402F118D3C1A8C" Guid="{62445135-8BBF-44E4-9E15-E359B402570D}">
+                <File Id="filE7B262232E40B8A578459869D6E7ABD7" KeyPath="yes" Source="!(wix.podir)\ar.po" />
+            </Component>
+            <Component Id="cmpCE4280DAA5BF134B99FB133CCDB18DCA" Guid="{8E479E27-3B64-4D0D-B1B1-610C8E4425C0}">
+                <File Id="fil6AF21D618F1CBE5EA0BCDA724EA90FEA" KeyPath="yes" Source="!(wix.podir)\bg.po" />
+            </Component>
+            <Component Id="cmpF7167E08EE15E744E835AF3524938EC6" Guid="{FF3B5DE4-45A8-4429-AF94-D5F71AB9D8CD}">
+                <File Id="filAB8AD1D6A69711F630D5C586B43018EF" KeyPath="yes" Source="!(wix.podir)\ca.po" />
+            </Component>
+            <Component Id="cmp9F7BB54D5623ECF15B143AE7209E339C" Guid="{BDD5E0AF-812B-421F-A9A5-7B5ED1D2E83C}">
+                <File Id="filF06C6931E3BBE5005FE0D09132C9EEFF" KeyPath="yes" Source="!(wix.podir)\cs_CZ.po" />
+            </Component>
+            <Component Id="cmp1726B3478AA0EA4DDC0F6261C6C4F2E8" Guid="{DC0AACAE-52B5-4487-BD7D-44BBB8E8911F}">
+                <File Id="filBE863D4483BAA1BC4C26BB2939AC9E5F" KeyPath="yes" Source="!(wix.podir)\da.po" />
+            </Component>
+            <Component Id="cmpC1A7A96CF3732944E5D38A679745A584" Guid="{DDA930FF-020C-44A2-83AC-19D08B586472}">
+                <File Id="fil8E395D1CAFAA002C26AAB035521385CA" KeyPath="yes" Source="!(wix.podir)\de.po" />
+            </Component>
+            <Component Id="cmp707E3DEAD8547D3E8A7068A237C0D65D" Guid="{D4EE6801-66EB-496C-A65A-EDA4959F1C7E}">
+                <File Id="filF8ED64C235F3FDDDCDF5CBAD5BDCF791" KeyPath="yes" Source="!(wix.podir)\el.po" />
+            </Component>
+            <Component Id="cmpCB29CFC126AA5BAAC0D2D22EE195F03C" Guid="{D0891900-44DC-4F0A-A18A-EF4C9705824C}">
+                <File Id="fil2702714E36D602469145B3197B8DD755" KeyPath="yes" Source="!(wix.podir)\eo.po" />
+            </Component>
+            <Component Id="cmp8BEB1BAF7D5AEF54834E6A288AA1E3E5" Guid="{95A6AD98-1205-41AF-9BA7-E6C8D0347DEC}">
+                <File Id="filC3E08921791290A460AA69AC9CBDE722" KeyPath="yes" Source="!(wix.podir)\es.po" />
+            </Component>
+            <Component Id="cmp848ABC001B83B0D1DD1DA77F40FDFC81" Guid="{EAF1F504-CC65-4326-9D80-76C073971876}">
+                <File Id="filC288EBD8C416C14FE6B1219C4711C2E7" KeyPath="yes" Source="!(wix.podir)\fi.po" />
+            </Component>
+            <Component Id="cmp4221D56035683B78A1A492198AB45C46" Guid="{44B6F9FB-D768-41E4-B41F-6E5A2A4EB743}">
+                <File Id="fil771C6A87FAE095639F85F74694CE39BB" KeyPath="yes" Source="!(wix.podir)\fr.po" />
+            </Component>
+            <Component Id="cmpC43CB2F4F224331D0A36A2609B78145A" Guid="{01646A0C-E366-427A-B48D-4331DD6AFF4D}">
+                <File Id="filC6E016A350307EE3B5A755A73A7575B5" KeyPath="yes" Source="!(wix.podir)\he.po" />
+            </Component>
+            <Component Id="cmp4E8943C06BE6BCA799EC58BE0F7E2E89" Guid="{B50FD5D8-EF08-425C-9C70-1ACB6B5CFC95}">
+                <File Id="fil237C2175CE94DC3E80E9D324150E1788" KeyPath="yes" Source="!(wix.podir)\hu.po" />
+            </Component>
+            <Component Id="cmp40DD37B293E8BD6C76F96752A7C1F3D4" Guid="{12DBC0E9-5F66-481A-9486-D6FA4D2C8BCC}">
+                <File Id="filA1C979D08882BF3A84467E8281FF93F4" KeyPath="yes" Source="!(wix.podir)\it.po" />
+            </Component>
+            <Component Id="cmp32AEAAAA9975C8050863C1A4EAC894B2" Guid="{AE8708DF-C0BD-493D-812D-A04D5B717DC8}">
+                <File Id="fil11A2886ADFD6AD344811D3E635913D4D" KeyPath="yes" Source="!(wix.podir)\ja.po" />
+            </Component>
+            <Component Id="cmp29D54DBDB3220199BD176804C1607A2E" Guid="{A3DD240A-55CA-4803-9458-725000EAD337}">
+                <File Id="filA6568FFB017E80423E75843D16949BF2" KeyPath="yes" Source="!(wix.podir)\nl.po" />
+            </Component>
+            <Component Id="cmp28509C8681E476313618FEFBDE99F9FF" Guid="{01C32AB1-3C2E-4783-99DE-4CF28A207904}">
+                <File Id="fil336D67B9EC6C68EBBF8C0A489144494B" KeyPath="yes" Source="!(wix.podir)\nn_NO.po" />
+            </Component>
+            <Component Id="cmp419E03828ECAC64B73C8FFD78D9F118D" Guid="{12200315-66F2-41EC-AAC9-7C647393BBBB}">
+                <File Id="fil5930D4DFD9F8B26F0D3DE9C166D89D3D" KeyPath="yes" Source="!(wix.podir)\no_NO.po" />
+            </Component>
+            <Component Id="cmp2E02B77907C5E6FC9DBCB51192A5ABD0" Guid="{2EE6EB9B-EB86-4389-B76F-3BC63B5803DE}">
+                <File Id="fil1BD2BE3CF76850663E23340CFE4973EF" KeyPath="yes" Source="!(wix.podir)\pl.po" />
+            </Component>
+            <Component Id="cmp578467F8C777D1981639E3D9FE7802A8" Guid="{D7DB7277-A756-4BF9-B3FF-BFA2123CB387}">
+                <File Id="fil678FFD9A32690A4C0F6D5ECBC0C5CA8F" KeyPath="yes" Source="!(wix.podir)\pt_BR.po" />
+            </Component>
+            <Component Id="cmp2325C91F6218AD8017DFECD197DFB1B4" Guid="{F9409043-2ECB-46D6-A060-90D134D7F53F}">
+                <File Id="fil6BF101F51BCB0A2716048E946C42F58A" KeyPath="yes" Source="!(wix.podir)\ru.po" />
+            </Component>
+            <Component Id="cmp3FAE10D584E41A2802FD4A8A16BBC3EE" Guid="{38CF7F29-C5D6-4B7A-95EC-2E5CBE45E377}">
+                <File Id="fil87160090BFAB51C24FF34E254D8FE3D7" KeyPath="yes" Source="!(wix.podir)\sk.po" />
+            </Component>
+            <Component Id="cmp43FC754B707727AEC094E69D7022C992" Guid="{669D2F71-81B1-41AF-986C-484A7EF71EE7}">
+                <File Id="fil9F065E0BAF40954457E077342115E0AA" KeyPath="yes" Source="!(wix.podir)\sl.po" />
+            </Component>
+            <Component Id="cmpD25F3BB44839998C6C2F6EEBC124C350" Guid="{DFD62625-C8EF-41B1-8C84-DE24C0B0FF55}">
+                <File Id="fil0F006D3587D684812E03E4F50B926606" KeyPath="yes" Source="!(wix.podir)\sr_RS.po" />
+            </Component>
+            <Component Id="cmp55F42329492A0D3BC42F8354E07850C0" Guid="{46BB2460-1DD9-4BBB-8745-1DD0911C11D2}">
+                <File Id="filFCBDFF1A911F4FCA8E13AB9B41A13E73" KeyPath="yes" Source="!(wix.podir)\sv.po" />
+            </Component>
+            <Component Id="cmpD4B12D679B533BBD9BC28D18C61595BA" Guid="{7F88A6C2-F5F1-430A-BC73-9FE05B407621}">
+                <File Id="fil529155D104FE1201B05AFC85815DEB1E" KeyPath="yes" Source="!(wix.podir)\te.po" />
+            </Component>
+            <Component Id="cmpD60BD24FAAC3278BA8C162FABF15E57F" Guid="{B83B9F8C-1F24-44A5-9634-79AEE166FE1C}">
+                <File Id="filA9E002B18373C67188A9E096B2F10B19" KeyPath="yes" Source="!(wix.podir)\uk.po" />
+            </Component>
+            <Component Id="cmp99476CFD7FFE158FAC3F8AA41E5B27E0" Guid="{6DA60C5F-6A90-4D7F-8B60-8D6080352034}">
+                <File Id="fil194854B0C595535734566F763DCC3B37" KeyPath="yes" Source="!(wix.podir)\zh_CN.po" />
+            </Component>
+            <Component Id="cmp5724A7460EAF5C28FF75FC22FFF7F9B2" Guid="{C064E8F3-EF7B-4C2B-B9F0-79D7810030EA}">
+                <File Id="filFF52E30CBAB802AEAC3DFDC578575949" KeyPath="yes" Source="!(wix.podir)\zh_TW.po" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="poComponentGroup">
+            <ComponentRef Id="cmpA3D2705288DF24B272402F118D3C1A8C" />
+            <ComponentRef Id="cmpCE4280DAA5BF134B99FB133CCDB18DCA" />
+            <ComponentRef Id="cmpF7167E08EE15E744E835AF3524938EC6" />
+            <ComponentRef Id="cmp9F7BB54D5623ECF15B143AE7209E339C" />
+            <ComponentRef Id="cmp1726B3478AA0EA4DDC0F6261C6C4F2E8" />
+            <ComponentRef Id="cmpC1A7A96CF3732944E5D38A679745A584" />
+            <ComponentRef Id="cmp707E3DEAD8547D3E8A7068A237C0D65D" />
+            <ComponentRef Id="cmpCB29CFC126AA5BAAC0D2D22EE195F03C" />
+            <ComponentRef Id="cmp8BEB1BAF7D5AEF54834E6A288AA1E3E5" />
+            <ComponentRef Id="cmp848ABC001B83B0D1DD1DA77F40FDFC81" />
+            <ComponentRef Id="cmp4221D56035683B78A1A492198AB45C46" />
+            <ComponentRef Id="cmpC43CB2F4F224331D0A36A2609B78145A" />
+            <ComponentRef Id="cmp4E8943C06BE6BCA799EC58BE0F7E2E89" />
+            <ComponentRef Id="cmp40DD37B293E8BD6C76F96752A7C1F3D4" />
+            <ComponentRef Id="cmp32AEAAAA9975C8050863C1A4EAC894B2" />
+            <ComponentRef Id="cmp29D54DBDB3220199BD176804C1607A2E" />
+            <ComponentRef Id="cmp28509C8681E476313618FEFBDE99F9FF" />
+            <ComponentRef Id="cmp419E03828ECAC64B73C8FFD78D9F118D" />
+            <ComponentRef Id="cmp2E02B77907C5E6FC9DBCB51192A5ABD0" />
+            <ComponentRef Id="cmp578467F8C777D1981639E3D9FE7802A8" />
+            <ComponentRef Id="cmp2325C91F6218AD8017DFECD197DFB1B4" />
+            <ComponentRef Id="cmp3FAE10D584E41A2802FD4A8A16BBC3EE" />
+            <ComponentRef Id="cmp43FC754B707727AEC094E69D7022C992" />
+            <ComponentRef Id="cmpD25F3BB44839998C6C2F6EEBC124C350" />
+            <ComponentRef Id="cmp55F42329492A0D3BC42F8354E07850C0" />
+            <ComponentRef Id="cmpD4B12D679B533BBD9BC28D18C61595BA" />
+            <ComponentRef Id="cmpD60BD24FAAC3278BA8C162FABF15E57F" />
+            <ComponentRef Id="cmp99476CFD7FFE158FAC3F8AA41E5B27E0" />
+            <ComponentRef Id="cmp5724A7460EAF5C28FF75FC22FFF7F9B2" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

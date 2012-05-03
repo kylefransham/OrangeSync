@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C914413-B31C-4362-93C7-1AE34F09112A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OrangeLib</RootNamespace>
+    <AssemblyName>OrangeLib</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Mono.Posix" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OrangeRepoBase.cs" />
+    <Compile Include="Git/OrangeRepoGit.cs" />
+    <Compile Include="Hg/OrangeRepoHg.cs" />
+    <Compile Include="OrangeFetcherBase.cs" />
+    <Compile Include="Git/OrangeFetcherGit.cs" />
+    <Compile Include="Hg/OrangeFetcherHg.cs" />
+    <Compile Include="Defines.cs" />
+    <Compile Include="OrangeAnnouncement.cs" />
+    <Compile Include="OrangeHelpers.cs" />
+    <Compile Include="OrangePaths.cs" />
+    <Compile Include="OrangeOptions.cs" />
+    <Compile Include="OrangeChangeSet.cs" />
+    <Compile Include="OrangeListenerBase.cs" />
+    <Compile Include="OrangeListenerFactory.cs" />
+    <Compile Include="OrangeListenerTcp.cs" />
+    <Compile Include="OrangeBackend.cs" />
+    <Compile Include="OrangeConfig.cs" />
+    <Compile Include="OrangeWatcher.cs" />
+    <Compile Include="OrangeExtensions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties InternalTargetFrameworkVersion="3.5">
+        <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="true" RelativeMakefileName="Makefile.am">
+          <BuildFilesVar Sync="true" Name="SOURCES" />
+          <DeployFilesVar />
+          <ResourcesVar />
+          <OthersVar />
+          <GacRefVar />
+          <AsmRefVar />
+          <ProjectRefVar />
+        </MonoDevelop.Autotools.MakefileInfo>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>

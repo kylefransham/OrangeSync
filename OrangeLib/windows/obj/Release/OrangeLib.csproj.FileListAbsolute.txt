@@ -1,0 +1,3 @@
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\bin\OrangeLib.dll
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\OrangeLib\windows\obj\Release\ResolveAssemblyReference.cache
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\OrangeLib\windows\obj\Release\OrangeLib.dll

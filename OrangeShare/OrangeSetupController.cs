@@ -1,0 +1,613 @@
+//   OrangeShare, a collaboration and sharing tool.
+//   Copyright (C) 2010  Hylke Bons <hylkebons@gmail.com>
+//
+//   This program is free software: you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation, either version 3 of the License, or
+//   (at your option) any later version.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of the GNU General Public License
+//   along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Threading;
+
+using OrangeLib;
+
+namespace OrangeShare {
+
+    public enum PageType {
+        None,
+        Setup,
+        Add,
+        Invite,
+        Syncing,
+        Error,
+        Finished,
+        Tutorial,
+        CryptoSetup,
+        CryptoPassword
+    }
+
+    public enum FieldState {
+        Enabled,
+        Disabled
+    }
+
+
+    public class OrangeSetupController {
+
+        public event ShowWindowEventHandler ShowWindowEvent;
+        public delegate void ShowWindowEventHandler ();
+
+        public event HideWindowEventHandler HideWindowEvent;
+        public delegate void HideWindowEventHandler ();
+
+        public event ChangePageEventHandler ChangePageEvent;
+        public delegate void ChangePageEventHandler (PageType page, string [] warnings);
+        
+        public event UpdateProgressBarEventHandler UpdateProgressBarEvent;
+        public delegate void UpdateProgressBarEventHandler (double percentage);
+
+        public event UpdateSetupContinueButtonEventHandler UpdateSetupContinueButtonEvent;
+        public delegate void UpdateSetupContinueButtonEventHandler (bool button_enabled);
+
+        public event UpdateCryptoSetupContinueButtonEventHandler UpdateCryptoSetupContinueButtonEvent;
+        public delegate void UpdateCryptoSetupContinueButtonEventHandler (bool button_enabled);
+
+        public event UpdateCryptoPasswordContinueButtonEventHandler UpdateCryptoPasswordContinueButtonEvent;
+        public delegate void UpdateCryptoPasswordContinueButtonEventHandler (bool button_enabled);
+
+        public event UpdateAddProjectButtonEventHandler UpdateAddProjectButtonEvent;
+        public delegate void UpdateAddProjectButtonEventHandler (bool button_enabled);
+
+        public event ChangeAddressFieldEventHandler ChangeAddressFieldEvent;
+        public delegate void ChangeAddressFieldEventHandler (string text, string example_text, FieldState state);
+
+        public event ChangePathFieldEventHandler ChangePathFieldEvent;
+        public delegate void ChangePathFieldEventHandler (string text, string example_text, FieldState state);
+
+        public readonly List<OrangePlugin> Plugins = new List<OrangePlugin> ();
+        public OrangePlugin SelectedPlugin;
+
+        public OrangeInvite PendingInvite { get; private set; }
+        public int TutorialPageNumber { get; private set; }
+        public string PreviousUrl { get; private set; }
+        public string PreviousAddress { get; private set; }
+        public string PreviousPath { get; private set; }
+        public string SyncingFolder { get; private set; }
+        public double ProgressBarPercentage  { get; private set; }
+
+
+        public int SelectedPluginIndex {
+            get {
+                return Plugins.IndexOf (SelectedPlugin);
+            }
+        }
+
+        public string GuessedUserName {
+            get {
+                return Program.Controller.CurrentUser.Name;
+            }
+        }
+
+        public string GuessedUserEmail {
+            get {
+                if (Program.Controller.CurrentUser.Email.Equals ("Unknown"))
+                    return "";
+                else
+                    return Program.Controller.CurrentUser.Email;
+            }
+        }
+
+        public bool FetchPriorHistory {
+            get {
+                return this.fetch_prior_history;
+            }
+        }
+
+        private PageType current_page;
+        private string saved_address     = "";
+        private string saved_remote_path = "";
+        private bool create_startup_item = true;
+        private bool fetch_prior_history = false;
+
+
+        public OrangeSetupController ()
+        {
+            ChangePageEvent += delegate (PageType page_type, string [] warnings) {
+                this.current_page = page_type;
+            };
+
+            TutorialPageNumber = 0;
+            PreviousAddress    = "";
+            PreviousPath       = "";
+            PreviousUrl        = "";
+            SyncingFolder      = "";
+
+            string local_plugins_path = OrangePlugin.LocalPluginsPath;
+            int local_plugins_count   = 0;
+
+            // Import all of the plugins
+            if (Directory.Exists (local_plugins_path))
+                // Local plugins go first...
+                foreach (string xml_file_path in Directory.GetFiles (local_plugins_path, "*.xml")) {
+                    Plugins.Add (new OrangePlugin (xml_file_path));
+                    local_plugins_count++;
+                }
+
+            // ...system plugins after that...
+            if (Directory.Exists (Program.Controller.PluginsPath)) {
+                foreach (string xml_file_path in Directory.GetFiles (Program.Controller.PluginsPath, "*.xml")) {
+                    // ...and "Own server" at the very top
+                    if (xml_file_path.EndsWith ("own-server.xml")) {
+                        Plugins.Insert (0, new OrangePlugin (xml_file_path));
+
+                    } else if (xml_file_path.EndsWith ("ssnet.xml")) {
+                        Plugins.Insert ((local_plugins_count + 1), new OrangePlugin (xml_file_path));
+
+                    } else {
+                        Plugins.Add (new OrangePlugin (xml_file_path));
+                    }
+                }
+            }
+
+            SelectedPlugin = Plugins [0];
+
+
+            Program.Controller.InviteReceived += delegate (OrangeInvite invite) {
+                PendingInvite = invite;
+
+                if (ChangePageEvent != null)
+                    ChangePageEvent (PageType.Invite, null);
+
+                if (ShowWindowEvent != null)
+                    ShowWindowEvent ();
+            };
+
+
+            Program.Controller.ShowSetupWindowEvent += delegate (PageType page_type) {
+                if (page_type == PageType.CryptoSetup || page_type == PageType.CryptoPassword) {
+                    if (ChangePageEvent != null)
+                        ChangePageEvent (page_type, null);
+                    
+                    return;
+                }
+
+                if (PendingInvite != null) {
+                    if (ShowWindowEvent != null)
+                        ShowWindowEvent ();
+
+                    return;
+                }
+
+                if (this.current_page == PageType.Syncing ||
+                    this.current_page == PageType.Finished ||
+                    this.current_page == PageType.CryptoSetup ||
+                    this.current_page == PageType.CryptoPassword) {
+
+                    if (ShowWindowEvent != null)
+                        ShowWindowEvent ();
+
+                    return;
+                }
+
+                if (page_type == PageType.Add) {
+                    if (!Program.Controller.FirstRun && TutorialPageNumber == 0) {
+                        if (ChangePageEvent != null)
+                            ChangePageEvent (page_type, null);
+                        
+                        if (ShowWindowEvent != null)
+                            ShowWindowEvent ();
+                    }
+
+                    return;
+                }
+
+                if (ChangePageEvent != null)
+                    ChangePageEvent (page_type, null);
+
+                if (ShowWindowEvent != null)
+                    ShowWindowEvent ();
+            };
+        }
+
+
+        public void PageCancelled ()
+        {
+            PendingInvite   = null;
+            SelectedPlugin  = Plugins [0];
+            PreviousAddress = "";
+            PreviousPath    = "";
+            PreviousUrl     = "";
+
+            this.fetch_prior_history = false;
+
+            if (HideWindowEvent != null)
+                HideWindowEvent ();
+        }
+
+
+        public void CheckSetupPage (string full_name, string email)
+        {
+            full_name = full_name.Trim ();
+            email     = email.Trim ();
+
+            bool fields_valid = full_name != null && full_name.Trim().Length > 0 &&
+                IsValidEmail (email);
+
+            if (UpdateSetupContinueButtonEvent != null)
+                UpdateSetupContinueButtonEvent (fields_valid);
+        }
+
+        
+        public void SetupPageCancelled ()
+        {
+            Program.Controller.Quit ();
+        }
+        
+        
+        public void SetupPageCompleted (string full_name, string email)
+        {
+            Program.Controller.CurrentUser = new OrangeUser (full_name, email);
+
+            new Thread (
+                new ThreadStart (delegate {
+                    Program.Controller.GenerateKeyPair ();
+                    Program.Controller.ImportPrivateKey ();
+                })
+            ).Start ();
+
+            TutorialPageNumber = 1;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Tutorial, null);
+        }
+
+
+        public void TutorialSkipped ()
+        {
+            TutorialPageNumber = 4;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Tutorial, null);
+        }
+
+
+        public void HistoryItemChanged (bool fetch_prior_history)
+        {
+            this.fetch_prior_history = fetch_prior_history;
+        }
+
+
+        public void TutorialPageCompleted ()
+        {
+            TutorialPageNumber++;
+
+            if (TutorialPageNumber == 5) {
+                TutorialPageNumber = 0;
+
+                if (HideWindowEvent != null)
+                    HideWindowEvent ();
+
+                if (this.create_startup_item)
+                    Program.Controller.CreateStartupItem ();
+
+            } else {
+                if (ChangePageEvent != null)
+                    ChangePageEvent (PageType.Tutorial, null);
+            }
+        }
+
+
+        public void SelectedPluginChanged (int plugin_index)
+        {
+            SelectedPlugin = Plugins [plugin_index];
+
+            if (SelectedPlugin.Address != null) {
+                if (ChangeAddressFieldEvent != null)
+                    ChangeAddressFieldEvent (SelectedPlugin.Address, "", FieldState.Disabled);
+
+            } else if (SelectedPlugin.AddressExample != null) {
+                if (ChangeAddressFieldEvent != null)
+                    ChangeAddressFieldEvent (this.saved_address, SelectedPlugin.AddressExample, FieldState.Enabled);
+
+            } else {
+                if (ChangeAddressFieldEvent != null)
+                    ChangeAddressFieldEvent (this.saved_address, "", FieldState.Enabled);
+            }
+
+            if (SelectedPlugin.Path != null) {
+                if (ChangePathFieldEvent != null)
+                    ChangePathFieldEvent (SelectedPlugin.Path, "", FieldState.Disabled);
+
+            } else if (SelectedPlugin.PathExample != null) {
+                if (ChangePathFieldEvent != null)
+                    ChangePathFieldEvent (this.saved_remote_path, SelectedPlugin.PathExample, FieldState.Enabled);
+
+            } else {
+                if (ChangePathFieldEvent != null)
+                    ChangePathFieldEvent (this.saved_remote_path, "", FieldState.Enabled);
+            }
+        }
+
+
+        public void StartupItemChanged (bool create_startup_item)
+        {
+            this.create_startup_item = create_startup_item;
+        }
+
+
+        public void CheckAddPage (string address, string remote_path, int selected_plugin)
+        {
+            address     = address.Trim ();
+            remote_path = remote_path.Trim ();
+
+            if (selected_plugin == 0)
+                this.saved_address = address;
+
+            this.saved_remote_path = remote_path;
+
+            bool fields_valid = (address != null &&
+                                 address.Trim ().Length > 0 &&
+                                 remote_path != null &&
+                                 remote_path.Trim ().Length > 0);
+
+            if (UpdateAddProjectButtonEvent != null)
+                UpdateAddProjectButtonEvent (fields_valid);
+        }
+
+
+        public void AddPageCompleted (string address, string remote_path)
+        {
+            SyncingFolder = Path.GetFileNameWithoutExtension (remote_path);
+
+            ProgressBarPercentage = 1.0;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Syncing, null);
+
+            address     = address.Trim ();
+            remote_path = remote_path.Trim ();
+            remote_path = remote_path.TrimEnd ("/".ToCharArray ());
+
+            if (SelectedPlugin.PathUsesLowerCase)
+                remote_path = remote_path.ToLower ();
+
+            PreviousAddress = address;
+            PreviousPath    = remote_path;
+
+            Program.Controller.FolderFetched    += AddPageFetchedDelegate;
+            Program.Controller.FolderFetchError += AddPageFetchErrorDelegate;
+            Program.Controller.FolderFetching   += SyncingPageFetchingDelegate;
+
+            Program.Controller.StartFetcher (address, SelectedPlugin.Fingerprint, remote_path,
+                SelectedPlugin.AnnouncementsUrl, this.fetch_prior_history);
+        }
+
+        // The following private methods are
+        // delegates used by the previous method
+
+        private void AddPageFetchedDelegate (string remote_url, string [] warnings)
+        {
+            SyncingFolder = "";
+
+            // Create a local plugin for succesfully added projects, so
+            // so the user can easily use the same host again
+            if (SelectedPluginIndex == 0) {
+                OrangePlugin new_plugin;
+                Uri uri = new Uri (remote_url);
+
+                try {
+                    string address = remote_url.Replace (uri.AbsolutePath, "");
+    
+                    new_plugin = OrangePlugin.Create (
+                        uri.Host, address, address, "", "", "/path/to/project");
+    
+                    if (new_plugin != null) {
+                        Plugins.Insert (1, new_plugin);
+                        OrangeHelpers.DebugInfo ("Controller", "Added plugin for " + uri.Host);
+                    }
+
+                } catch {
+                    OrangeHelpers.DebugInfo ("Controller", "Failed adding plugin for " + uri.Host);
+                }
+            }
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Finished, warnings);
+
+            Program.Controller.FolderFetched    -= AddPageFetchedDelegate;
+            Program.Controller.FolderFetchError -= AddPageFetchErrorDelegate;
+            Program.Controller.FolderFetching   -= SyncingPageFetchingDelegate;
+        }
+
+        private void AddPageFetchErrorDelegate (string remote_url)
+        {
+            SyncingFolder = "";
+            PreviousUrl   = remote_url;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Error, null);
+
+            Program.Controller.FolderFetched    -= AddPageFetchedDelegate;
+            Program.Controller.FolderFetchError -= AddPageFetchErrorDelegate;
+            Program.Controller.FolderFetching   -= SyncingPageFetchingDelegate;
+        }
+
+        private void SyncingPageFetchingDelegate (double percentage)
+        {
+            ProgressBarPercentage = percentage;
+
+            if (UpdateProgressBarEvent != null)
+                UpdateProgressBarEvent (ProgressBarPercentage);
+        }
+
+
+        public void InvitePageCompleted ()
+        {
+            SyncingFolder   = Path.GetFileNameWithoutExtension (PendingInvite.RemotePath);
+            PreviousAddress = PendingInvite.Address;
+            PreviousPath    = PendingInvite.RemotePath;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Syncing, null);
+
+            if (!PendingInvite.Accept ()) {
+                if (ChangePageEvent != null)
+                    ChangePageEvent (PageType.Error, null);
+
+                return;
+            }
+
+            Program.Controller.FolderFetched    += InvitePageFetchedDelegate;
+            Program.Controller.FolderFetchError += InvitePageFetchErrorDelegate;
+            Program.Controller.FolderFetching   += SyncingPageFetchingDelegate;
+
+            Program.Controller.StartFetcher (PendingInvite.Address, PendingInvite.Fingerprint,
+                PendingInvite.RemotePath, PendingInvite.AnnouncementsUrl, false); // TODO: checkbox on invite page
+        }
+
+        // The following private methods are
+        // delegates used by the previous method
+
+        private void InvitePageFetchedDelegate (string remote_url, string [] warnings)
+        {
+            SyncingFolder   = "";
+            PendingInvite = null;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Finished, warnings);
+
+            Program.Controller.FolderFetched    -= AddPageFetchedDelegate;
+            Program.Controller.FolderFetchError -= AddPageFetchErrorDelegate;
+            Program.Controller.FolderFetching   -= SyncingPageFetchingDelegate;
+        }
+
+        private void InvitePageFetchErrorDelegate (string remote_url)
+        {
+            SyncingFolder = "";
+            PreviousUrl   = remote_url;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Error, null);
+
+            Program.Controller.FolderFetched    -= AddPageFetchedDelegate;
+            Program.Controller.FolderFetchError -= AddPageFetchErrorDelegate;
+            Program.Controller.FolderFetching   -= SyncingPageFetchingDelegate;
+        }
+
+
+        public void SyncingCancelled ()
+        {
+            Program.Controller.StopFetcher ();
+
+            if (ChangePageEvent == null)
+                return;
+
+            if (PendingInvite != null)
+                ChangePageEvent (PageType.Invite, null);
+            else
+                ChangePageEvent (PageType.Add, null);
+        }
+
+
+        public void ErrorPageCompleted ()
+        {
+            if (PendingInvite != null)
+                ChangePageEvent (PageType.Invite, null);
+            else
+                ChangePageEvent (PageType.Add, null);
+        }
+
+
+        public void CheckCryptoSetupPage (string password)
+        {
+            bool valid_password = (password.Length > 0 && !password.Contains (" "));
+
+            if (UpdateCryptoSetupContinueButtonEvent != null)
+                UpdateCryptoSetupContinueButtonEvent (valid_password);
+        }
+
+
+        public void CheckCryptoPasswordPage (string password)
+        {
+            bool password_correct = Program.Controller.CheckPassword (password);
+
+            if (UpdateCryptoPasswordContinueButtonEvent != null)
+                UpdateCryptoPasswordContinueButtonEvent (password_correct);
+        }
+
+
+        public void CryptoPageCancelled ()
+        {
+            SyncingCancelled ();
+        }
+
+
+        public void CryptoSetupPageCompleted (string password)
+        {
+            CryptoPasswordPageCompleted (password);
+        }
+
+
+        public void CryptoPasswordPageCompleted (string password)
+        {
+            ProgressBarPercentage = 100.0;
+
+            if (ChangePageEvent != null)
+                ChangePageEvent (PageType.Syncing, null);
+
+            new Thread (
+                new ThreadStart (delegate {
+                    Thread.Sleep (1000);
+                    Program.Controller.FinishFetcher (password);
+                })
+            ).Start ();
+        }
+
+
+        public void OpenFolderClicked ()
+        {
+            Program.Controller.OpenOrangeShareFolder (
+                Path.GetFileName (PreviousPath));
+
+            FinishPageCompleted ();
+        }
+
+
+        public void FinishPageCompleted ()
+        {
+            SelectedPlugin  = Plugins [0];
+            PreviousUrl     = "";
+            PreviousAddress = "";
+            PreviousPath    = "";
+            this.fetch_prior_history = false;
+
+            this.current_page = PageType.None;
+
+            if (HideWindowEvent != null)
+                HideWindowEvent ();
+
+            Program.Controller.UpdateState ();
+        }
+
+
+        private bool IsValidEmail (string email)
+        {
+            Regex regex = new Regex (@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$",
+                RegexOptions.IgnoreCase);
+
+            return regex.IsMatch (email);
+        }
+    }
+}

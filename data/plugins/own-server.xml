@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sparkleshare>
+  <plugin>
+    <info>
+        <name>On my own server</name>
+        <description>Everything under my control</description>
+        <icon>own-server.png</icon>
+        <backend>Git</backend>
+    </info>
+    <address>
+      <value />
+      <example>[user@]hostname[:port]</example>
+    </address>
+    <path>
+      <value />
+      <example>/path/to/project</example>
+    </path>
+  </plugin>
+</sparkleshare>

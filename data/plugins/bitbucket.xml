@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sparkleshare>
+  <plugin>
+    <info>
+        <name>Bitbucket</name>
+        <description>Free code hosting for Git and Mercurial</description>
+        <icon>bitbucket.png</icon>
+        <backend>Git</backend>
+        <fingerprint>97:8c:1b:f2:6f:14:6b:5c:3b:ec:aa:46:46:74:7c:40</fingerprint>
+    </info>
+    <address>
+      <value>ssh://git@bitbucket.org/</value>
+      <example />
+    </address>
+    <path>
+      <value />
+      <example>/username/project</example>
+      <uses_lower_case>True</uses_lower_case>
+    </path>
+  </plugin>
+</sparkleshare>

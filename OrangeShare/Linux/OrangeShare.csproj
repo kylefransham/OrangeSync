@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <ProjectGuid>{728483AA-E34B-4441-BF2C-C8BC2901E4E0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>OrangeShare</AssemblyName>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace>OrangeShare</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Mono.Posix" />
+    <Reference Include="notify-sharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=2df29c54e245917a">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="true" RelativeMakefileName="Makefile.am">
+          <BuildFilesVar Sync="true" Name="SOURCES" />
+          <DeployFilesVar />
+          <ResourcesVar />
+          <OthersVar />
+          <GacRefVar />
+          <AsmRefVar />
+          <ProjectRefVar />
+        </MonoDevelop.Autotools.MakefileInfo>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Compile Include="OrangeBubbles.cs" />
+    <Compile Include="OrangeBubblesController.cs" />
+    <Compile Include="OrangeController.cs" />
+    <Compile Include="OrangeEntry.cs" />
+    <Compile Include="OrangeSetup.cs" />
+    <Compile Include="OrangeSetupController.cs" />
+    <Compile Include="OrangeSetupWindow.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="OrangeSpinner.cs" />
+    <Compile Include="OrangeStatusIcon.cs" />
+    <Compile Include="OrangeStatusIconController.cs" />
+    <Compile Include="OrangeUI.cs" />
+    <Compile Include="OrangeUIHelpers.cs" />
+    <Compile Include="OrangeEventLogController.cs" />
+    <Compile Include="OrangeEventLog.cs" />
+    <Compile Include="OrangeAboutController.cs" />
+    <Compile Include="OrangeAbout.cs" />
+    <Compile Include="OrangeExtensions.cs" />
+    <Compile Include="OrangeControllerBase.cs" />
+    <Compile Include="OrangePlugin.cs" />
+    <Compile Include="OrangeOptions.cs" />
+    <Compile Include="OrangeInvite.cs" />
+  </ItemGroup>
+</Project>

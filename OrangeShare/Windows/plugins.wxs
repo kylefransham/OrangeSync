@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="PLUGINS_DIR">
+            <Component Id="cmpCC76FEB5B343E92878C6ED73B8870B6E" Guid="{1D58AA70-4E41-48F7-8BD2-BB4C552CE89F}">
+                <File Id="filFF666DBC207C1545214883C94D2D262A" KeyPath="yes" Source="!(wix.pluginsdir)\bitbucket.png" />
+            </Component>
+            <Component Id="cmpA981FAA2152FFEB232CB0ABF3BF887B1" Guid="{7164AACA-D6ED-4896-A252-C2C614EC1A7C}">
+                <File Id="fil3396D8A8974949B48643E10C777DC67F" KeyPath="yes" Source="!(wix.pluginsdir)\bitbucket.xml" />
+            </Component>
+            <Component Id="cmpE6AE99E0E0171DAD8904E8AD1D12D0B7" Guid="{E2F8932D-97FF-477A-BCF3-073AA49E47B0}">
+                <File Id="filB97D811FFF33D40888B48D9DF5601B3D" KeyPath="yes" Source="!(wix.pluginsdir)\github.png" />
+            </Component>
+            <Component Id="cmp5B5142F0F8029057036C4BF0FFCE0C74" Guid="{E61EE500-B991-4FE9-B2E2-A254E6C40089}">
+                <File Id="fil82E4C709290AB8A85C4B6810B1D1BCA2" KeyPath="yes" Source="!(wix.pluginsdir)\github.xml" />
+            </Component>
+            <Component Id="cmpE37737CB207EE13AE0FAD6FA04234BDE" Guid="{0F2AF862-0FCB-4E33-B486-FF61D3376FF9}">
+                <File Id="fil7F2A5975B714ADFD3295581F5D5E2976" KeyPath="yes" Source="!(wix.pluginsdir)\gitorious.png" />
+            </Component>
+            <Component Id="cmp9D7C5F81293A9F5523E2D5E341E7B506" Guid="{A6ED0458-1382-4E0A-967F-77DD271A74A5}">
+                <File Id="fil439DDEE6A672476D7DEED5A1673670EE" KeyPath="yes" Source="!(wix.pluginsdir)\gitorious.xml" />
+            </Component>
+            <Component Id="cmp2F4EB31AC78FDDFFE7752F42B5A94FAA" Guid="{05ED141D-1EFA-409E-939C-458B27B260C0}">
+                <File Id="fil246BE439365603247CC2D34F8D21A20F" KeyPath="yes" Source="!(wix.pluginsdir)\gnome.png" />
+            </Component>
+            <Component Id="cmp08DD5D7DC3440194E53C6A8445F6BBA2" Guid="{2A025FE6-7583-4C82-8327-670AB4288FD8}">
+                <File Id="fil53A3C959ECC283B68ED46E8D9A65EE85" KeyPath="yes" Source="!(wix.pluginsdir)\gnome.xml" />
+            </Component>
+            <Component Id="cmpE3AC3EC3B548BF155C7FACE7BB960552" Guid="{6067902E-52E7-4416-B083-07598301CCB4}">
+                <File Id="fil8BDA7B415FE365BE451460287F725A37" KeyPath="yes" Source="!(wix.pluginsdir)\own-server.png" />
+            </Component>
+            <Component Id="cmp7885EA7BA888AD18ADB34C8C5F265B4D" Guid="{38D6C910-3465-4E4C-A0EF-00CE3228D289}">
+                <File Id="filC97982D93E2D3344080D55FC29F4BBC3" KeyPath="yes" Source="!(wix.pluginsdir)\own-server.xml" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="pluginsComponentGroup">
+            <ComponentRef Id="cmpCC76FEB5B343E92878C6ED73B8870B6E" />
+            <ComponentRef Id="cmpA981FAA2152FFEB232CB0ABF3BF887B1" />
+            <ComponentRef Id="cmpE6AE99E0E0171DAD8904E8AD1D12D0B7" />
+            <ComponentRef Id="cmp5B5142F0F8029057036C4BF0FFCE0C74" />
+            <ComponentRef Id="cmpE37737CB207EE13AE0FAD6FA04234BDE" />
+            <ComponentRef Id="cmp9D7C5F81293A9F5523E2D5E341E7B506" />
+            <ComponentRef Id="cmp2F4EB31AC78FDDFFE7752F42B5A94FAA" />
+            <ComponentRef Id="cmp08DD5D7DC3440194E53C6A8445F6BBA2" />
+            <ComponentRef Id="cmpE3AC3EC3B548BF155C7FACE7BB960552" />
+            <ComponentRef Id="cmp7885EA7BA888AD18ADB34C8C5F265B4D" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

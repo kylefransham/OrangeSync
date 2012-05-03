@@ -1,0 +1,24 @@
+# List of source files containing translatable strings.
+# Please keep this file in alphabetical order; run ./sort-potfiles
+# after adding files here.
+[encoding: UTF-8]
+data/plugins/bitbucket.xml.in
+data/plugins/github.xml.in
+data/plugins/gitorious.xml.in
+data/plugins/gnome.xml.in
+data/plugins/own-server.xml.in
+OrangeShare/Linux/Nautilus/sparkleshare-nautilus-extension.py.in
+OrangeShare/Linux/Nautilus/sparkleshare-nautilus3-extension.py.in
+OrangeShare/Linux/Nautilus/sparkleshare-nautilus-extension.py
+OrangeShare/Linux/Nautilus/sparkleshare-nautilus3-extension.py
+OrangeShare/Program.cs
+OrangeShare/Linux/OrangeAbout.cs
+OrangeShare/Linux/OrangeController.cs
+OrangeShare/OrangeControllerBase.cs
+OrangeShare/Linux/OrangeEventLog.cs
+OrangeShare/OrangeOptions.cs
+OrangeShare/Linux/OrangeSetup.cs
+OrangeShare/Linux/OrangeSetupWindow.cs
+OrangeShare/Linux/OrangeStatusIcon.cs
+OrangeShare/Linux/OrangeUI.cs
+

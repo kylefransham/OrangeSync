@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CF5BC8DB-A633-4FCC-8A3E-E3AC9B59FABC}</ProjectGuid>
+    <ProjectTypeGuids>{948B3504-5B70-4649-8FE4-BDE1FB46EC69};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OrangeShare</RootNamespace>
+    <AssemblyName>OrangeShare</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ReleaseVersion>0.8.4</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="mkdir -p ${TargetDir}/${SolutionName}.app/Contents/Frameworks; cp -r Growl.framework ${TargetDir}/${SolutionName}.app/Contents/Frameworks; cp -r git ${TargetDir}/${SolutionName}.app/Contents/Resources; cp -r OrangeShareInviteOpener.app ${TargetDir}/${SolutionName}.app/Contents/Resources" externalConsole="true" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MonoMac">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="OrangeLib, Version=0.8.3.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\OrangeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="OrangeLib.Git, Version=0.8.3.0, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\OrangeLib.Git.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDelegate.cs">
+      <DependentUpon>MainMenu.xib</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.xib.designer.cs">
+      <DependentUpon>MainMenu.xib</DependentUpon>
+    </Compile>
+    <Compile Include="..\OrangeControllerBase.cs">
+      <Link>OrangeControllerBase.cs</Link>
+    </Compile>
+    <Compile Include="OrangeStatusIcon.cs" />
+    <Compile Include="OrangeUI.cs" />
+    <Compile Include="..\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
+    <Compile Include="OrangeMacWatcher.cs" />
+    <Compile Include="OrangeEventLog.cs" />
+    <Compile Include="OrangeBadger.cs" />
+    <Compile Include="OrangeBubbles.cs" />
+    <Compile Include="OrangeSetup.cs" />
+    <Compile Include="OrangeSetupWindow.cs" />
+    <Compile Include="..\OrangeBubblesController.cs">
+      <Link>OrangeBubblesController.cs</Link>
+    </Compile>
+    <Compile Include="..\OrangeEventLogController.cs">
+      <Link>OrangeEventLogController.cs</Link>
+    </Compile>
+    <Compile Include="..\OrangeSetupController.cs">
+      <Link>OrangeSetupController.cs</Link>
+    </Compile>
+    <Compile Include="..\OrangeStatusIconController.cs">
+      <Link>OrangeStatusIconController.cs</Link>
+    </Compile>
+    <Compile Include="..\OrangeAboutController.cs">
+      <Link>OrangeAboutController.cs</Link>
+    </Compile>
+    <Compile Include="..\OrangeExtensions.cs">
+      <Link>OrangeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="OrangeController.cs" />
+    <Compile Include="..\OrangePlugin.cs">
+      <Link>OrangePlugin.cs</Link>
+    </Compile>
+    <Compile Include="..\OrangeOptions.cs">
+      <Link>OrangeOptions.cs</Link>
+    </Compile>
+    <Compile Include="OrangeAbout.cs" />
+    <Compile Include="..\OrangeInvite.cs">
+      <Link>OrangeInvite.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="MainMenu.xib" xmlns="" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Mono\MonoMac\v0.0\Mono.MonoMac.targets" />
+  <ItemGroup>
+    <Content Include="..\..\data\html\day-entry.html">
+      <Link>HTML\day-entry.html</Link>
+    </Content>
+    <Content Include="..\..\data\html\event-entry.html">
+      <Link>HTML\event-entry.html</Link>
+    </Content>
+    <Content Include="..\..\data\html\event-log.html">
+      <Link>HTML\event-log.html</Link>
+    </Content>
+    <Content Include="..\..\data\side-splash.png">
+      <Link>Pixmaps\side-splash.png</Link>
+    </Content>
+    <Content Include="..\..\data\sparkleshare-mac.icns">
+      <Link>sparkleshare-mac.icns</Link>
+    </Content>
+    <Content Include="..\..\data\sparkleshare.icns">
+      <Link>sparkleshare.icns</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-i-active.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-i-active.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-i.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-i.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-ii-active.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-ii-active.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-ii.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-ii.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-iii-active.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-iii-active.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-iii.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-iii.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-iiii-active.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-iiii-active.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-iiii.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-iiii.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-iiiii-active.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-iiiii-active.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\process-syncing-sparkleshare-mac-iiiii.png">
+      <Link>Pixmaps\process-syncing-sparkleshare-mac-iiiii.png</Link>
+    </Content>
+    <Content Include="Growl.plist" />
+    <Content Include="..\..\data\icons\sparkleshare-syncing-error-mac.png">
+      <Link>Pixmaps\sparkleshare-syncing-error-mac.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\sparkleshare-syncing-error-mac-active.png">
+      <Link>Pixmaps\sparkleshare-syncing-error-mac-active.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\document-added-12.png">
+      <Link>Pixmaps\document-added-12.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\document-edited-12.png">
+      <Link>Pixmaps\document-edited-12.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\document-deleted-12.png">
+      <Link>Pixmaps\document-deleted-12.png</Link>
+    </Content>
+    <Content Include="..\..\data\icons\document-moved-12.png">
+      <Link>Pixmaps\document-moved-12.png</Link>
+    </Content>
+    <Content Include="..\..\po\ar.po">
+      <Link>Translations\ar.po</Link>
+    </Content>
+    <Content Include="..\..\po\bg.po">
+      <Link>Translations\bg.po</Link>
+    </Content>
+    <Content Include="..\..\po\ca.po">
+      <Link>Translations\ca.po</Link>
+    </Content>
+    <Content Include="..\..\po\cs_CZ.po">
+      <Link>Translations\cs_CZ.po</Link>
+    </Content>
+    <Content Include="..\..\po\da.po">
+      <Link>Translations\da.po</Link>
+    </Content>
+    <Content Include="..\..\po\de.po">
+      <Link>Translations\de.po</Link>
+    </Content>
+    <Content Include="..\..\po\el.po">
+      <Link>Translations\el.po</Link>
+    </Content>
+    <Content Include="..\..\po\eo.po">
+      <Link>Translations\eo.po</Link>
+    </Content>
+    <Content Include="..\..\po\es.po">
+      <Link>Translations\es.po</Link>
+    </Content>
+    <Content Include="..\..\po\fi.po">
+      <Link>Translations\fi.po</Link>
+    </Content>
+    <Content Include="..\..\po\fr.po">
+      <Link>Translations\fr.po</Link>
+    </Content>
+    <Content Include="..\..\po\he.po">
+      <Link>Translations\he.po</Link>
+    </Content>
+    <Content Include="..\..\po\hu.po">
+      <Link>Translations\hu.po</Link>
+    </Content>
+    <Content Include="..\..\po\it.po">
+      <Link>Translations\it.po</Link>
+    </Content>
+    <Content Include="..\..\po\ja.po">
+      <Link>Translations\ja.po</Link>
+    </Content>
+    <Content Include="..\..\po\nl.po">
+      <Link>Translations\nl.po</Link>
+    </Content>
+    <Content Include="..\..\po\no_NO.po">
+      <Link>Translations\no_NO.po</Link>
+    </Content>
+    <Content Include="..\..\po\pl.po">
+      <Link>Translations\pl.po</Link>
+    </Content>
+    <Content Include="..\..\po\pt_BR.po">
+      <Link>Translations\pt_BR.po</Link>
+    </Content>
+    <Content Include="..\..\po\ru.po">
+      <Link>Translations\ru.po</Link>
+    </Content>
+    <Content Include="..\..\po\sv.po">
+      <Link>Translations\sv.po</Link>
+    </Content>
+    <Content Include="..\..\po\te.po">
+      <Link>Translations\te.po</Link>
+    </Content>
+    <Content Include="..\..\po\uk.po">
+      <Link>Translations\uk.po</Link>
+    </Content>
+    <Content Include="..\..\po\zh_CN.po">
+      <Link>Translations\zh_CN.po</Link>
+    </Content>
+    <Content Include="..\..\po\zh_TW.po">
+      <Link>Translations\zh_TW.po</Link>
+    </Content>
+    <Content Include="..\..\data\about.png">
+      <Link>Pixmaps\about.png</Link>
+    </Content>
+    <Content Include="..\..\data\html\jquery.js">
+      <Link>HTML\jquery.js</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-1.png">
+      <Link>Pixmaps\tutorial-slide-1.png</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-1-mac.png">
+      <Link>Pixmaps\tutorial-slide-1-mac.png</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-2-mac.png">
+      <Link>Pixmaps\tutorial-slide-2-mac.png</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-3-mac.png">
+      <Link>Pixmaps\tutorial-slide-3-mac.png</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-2.png">
+      <Link>Pixmaps\tutorial-slide-2.png</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-3.png">
+      <Link>Pixmaps\tutorial-slide-3.png</Link>
+    </Content>
+    <Content Include="..\..\data\tutorial-slide-4.png">
+      <Link>Pixmaps\tutorial-slide-4.png</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\bitbucket.xml">
+      <Link>Plugins\bitbucket.xml</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\github.xml">
+      <Link>Plugins\github.xml</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\gitorious.xml">
+      <Link>Plugins\gitorious.xml</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\gnome.xml">
+      <Link>Plugins\gnome.xml</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\own-server.xml">
+      <Link>Plugins\own-server.xml</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\bitbucket.png">
+      <Link>Plugins\bitbucket.png</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\github.png">
+      <Link>Plugins\github.png</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\gitorious.png">
+      <Link>Plugins\gitorious.png</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\gnome.png">
+      <Link>Plugins\gnome.png</Link>
+    </Content>
+    <Content Include="..\..\data\plugins\own-server.png">
+      <Link>Plugins\own-server.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-a.png">
+      <Link>Pixmaps\avatar-a.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-b.png">
+      <Link>Pixmaps\avatar-b.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-c.png">
+      <Link>Pixmaps\avatar-c.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-d.png">
+      <Link>Pixmaps\avatar-d.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-e.png">
+      <Link>Pixmaps\avatar-e.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-f.png">
+      <Link>Pixmaps\avatar-f.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-g.png">
+      <Link>Pixmaps\avatar-g.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-h.png">
+      <Link>Pixmaps\avatar-h.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-i.png">
+      <Link>Pixmaps\avatar-i.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-j.png">
+      <Link>Pixmaps\avatar-j.png</Link>
+    </Content>
+    <Content Include="..\..\data\avatar-k.png">
+      <Link>Pixmaps\avatar-k.png</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pixmaps\" />
+    <Folder Include="HTML\" />
+    <Folder Include="Translations\" />
+    <Folder Include="Plugins\" />
+  </ItemGroup>
+</Project>

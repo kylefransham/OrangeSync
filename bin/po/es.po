@@ -1,0 +1,394 @@
+# This file is distributed under the same license as the OrangeShare package.
+# 
+# Translators:
+# Claudio Rodrigo Pereyra Diaz <elsupergomez@gmail.com>, 2011.
+#   <jamelrom@gmail.com>, 2011.
+# jamelrom <jamelrom@gmail.com>, 2011.
+#   <luiso.perez@gmail.com>, 2011.
+#   <miguel.vaellomartinez@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: OrangeShare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-04 12:45+0100\n"
+"PO-Revision-Date: 2011-12-09 14:13+0000\n"
+"Last-Translator: miguxbe <miguel.vaellomartinez@gmail.com>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/sparkleshare/team/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: ../data/plugins/bitbucket.xml.in.h:1 ../data/plugins/github.xml.in.h:1
+msgid "/username/project"
+msgstr "/usuario/proyecto"
+
+#: ../data/plugins/bitbucket.xml.in.h:2
+msgid "Bitbucket"
+msgstr "Bitbucket"
+
+#: ../data/plugins/bitbucket.xml.in.h:3
+msgid "Free code hosting for Git and Mercurial"
+msgstr "Alojamiento gratuito de código fuente para Git y Mercurial"
+
+#: ../data/plugins/github.xml.in.h:2
+msgid "Free public Git repositories with collaborator management"
+msgstr "Repositorios públicos y gratuitos de Git con gestión de colaboradores"
+
+#: ../data/plugins/github.xml.in.h:3
+msgid "Github"
+msgstr "Github"
+
+#: ../data/plugins/gitorious.xml.in.h:1
+msgid "/project/repository"
+msgstr "/proyecto/repositorio"
+
+#: ../data/plugins/gitorious.xml.in.h:2
+msgid "Gitorious"
+msgstr "Gitorious"
+
+#: ../data/plugins/gitorious.xml.in.h:3
+msgid "Open source infrastructure for hosting open source projects"
+msgstr ""
+"Infraestructura de código libre para almacenar proyectos de código libre"
+
+#: ../data/plugins/gnome.xml.in.h:1
+msgid "/project"
+msgstr "/proyecto"
+
+#: ../data/plugins/gnome.xml.in.h:2
+msgid "A free and easy interface for your computer"
+msgstr "Una interfaz libre y sencilla para tu ordenador"
+
+#: ../data/plugins/gnome.xml.in.h:3
+msgid "The GNOME Project"
+msgstr "El Proyecto GNOME"
+
+#: ../data/plugins/own-server.xml.in.h:1
+msgid "/path/to/project"
+msgstr "/ruta/al/proyecto"
+
+#: ../data/plugins/own-server.xml.in.h:2
+msgid "Everything under my control"
+msgstr "Todo bajo mi control"
+
+#: ../data/plugins/own-server.xml.in.h:3
+msgid "On my own server"
+msgstr "En mi propio servidor"
+
+#: ../OrangeShare/Mac/OrangeStatusIcon.cs:84
+#: ../OrangeShare/Mac/OrangeStatusIcon.cs:102
+#: ../OrangeShare/OrangeSetup.cs:75 ../OrangeShare/OrangeStatusIcon.cs:75
+#: ../OrangeShare/OrangeStatusIcon.cs:89
+msgid "Welcome to OrangeShare!"
+msgstr "¡Bienvenido a OrangeShare!"
+
+#: ../OrangeShare/Mac/OrangeStatusIcon.cs:86
+#: ../OrangeShare/Mac/OrangeStatusIcon.cs:104
+#: ../OrangeShare/OrangeStatusIcon.cs:77
+#: ../OrangeShare/OrangeStatusIcon.cs:91
+msgid "Up to date"
+msgstr "Actualizado"
+
+#: ../OrangeShare/Mac/OrangeStatusIcon.cs:113
+#: ../OrangeShare/OrangeStatusIcon.cs:106
+msgid "Syncing…"
+msgstr "Sincronizando..."
+
+#: ../OrangeShare/Mac/OrangeStatusIcon.cs:125
+#: ../OrangeShare/OrangeStatusIcon.cs:118
+msgid "Not everything is synced"
+msgstr "Pendiente de sincronizar"
+
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus-extension.py.in:114
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus3-extension.py.in:141
+msgid "Copy Web Link"
+msgstr "Copiar Enlace"
+
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus-extension.py.in:115
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus3-extension.py.in:142
+msgid "Copy the web address of this file to the clipboard"
+msgstr "Copiar la dirección web de este archivo al portapapeles"
+
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus-extension.py.in:148
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus3-extension.py.in:174
+msgid "Get Earlier Version"
+msgstr "Obtener versión anterior"
+
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus-extension.py.in:149
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus3-extension.py.in:175
+msgid "Make a copy of an earlier version in this folder"
+msgstr "Hacer una copia de una versión anterior en esta carpeta"
+
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus-extension.py.in:162
+#: ../OrangeShare/Nautilus/sparkleshare-nautilus3-extension.py.in:188
+msgid "Select to get a copy of this version"
+msgstr "Seleccionar para obtener una copia de esta versión"
+
+#: ../OrangeShare/Program.cs:50
+msgid "Print version information"
+msgstr "Muestra la información de la versión"
+
+#: ../OrangeShare/Program.cs:51
+msgid "Show this help text"
+msgstr "Mostrar este texto de ayuda"
+
+#: ../OrangeShare/Program.cs:83
+msgid "OrangeShare, a collaboration and sharing tool."
+msgstr "OrangeShare, una herramienta de compartición y colaboración"
+
+#: ../OrangeShare/Program.cs:84
+msgid "Copyright (C) 2010 Hylke Bons"
+msgstr "Copyright (C) 2010 Hylke Bons"
+
+#: ../OrangeShare/Program.cs:86
+msgid "This program comes with ABSOLUTELY NO WARRANTY."
+msgstr "Este programa viene SIN NINGUNA GARANTÍA."
+
+#: ../OrangeShare/Program.cs:88
+msgid "This is free software, and you are welcome to redistribute it "
+msgstr "Esto es software libre, y esta invitado a redistribuirlo"
+
+#: ../OrangeShare/Program.cs:89
+msgid "under certain conditions. Please read the GNU GPLv3 for details."
+msgstr ""
+"bajo determinadas condiciones. Por favor lea la GNU GPLv3 para más detalles."
+
+#: ../OrangeShare/Program.cs:91
+msgid "OrangeShare automatically syncs Git repositories in "
+msgstr "OrangeShare sincroniza automaticamente repositorios Git en "
+
+#: ../OrangeShare/Program.cs:92
+msgid "the ~/OrangeShare folder with their remote origins."
+msgstr "La carpeta ~/OrangeShare con su origen remoto."
+
+#: ../OrangeShare/Program.cs:94
+msgid "Usage: sparkleshare [start|stop|restart] [OPTION]..."
+msgstr "Uso: sparkleshare [start|stop|restart] [OPCIÓN]..."
+
+#: ../OrangeShare/Program.cs:95
+msgid "Sync OrangeShare folder with remote repositories."
+msgstr "Sincronizar carpeta OrangeShare con el repositorio remoto."
+
+#: ../OrangeShare/Program.cs:97
+msgid "Arguments:"
+msgstr "Parámetros:"
+
+#: ../OrangeShare/Program.cs:107
+msgid "OrangeShare "
+msgstr "OrangeShare"
+
+#. A menu item that takes the user to http://www.sparkleshare.org/
+#: ../OrangeShare/OrangeAbout.cs:53 ../OrangeShare/OrangeStatusIcon.cs:297
+msgid "About OrangeShare"
+msgstr "Acerca de OrangeShare"
+
+#: ../OrangeShare/OrangeAbout.cs:70
+#, csharp-format
+msgid "A newer version ({0}) is available!"
+msgstr "Esta disponible una nueva versión  ({0})"
+
+#: ../OrangeShare/OrangeAbout.cs:79
+msgid "You are running the latest version."
+msgstr "Estas ejecutando la última versión"
+
+#: ../OrangeShare/OrangeAbout.cs:88 ../OrangeShare/OrangeAbout.cs:110
+msgid "Checking for updates..."
+msgstr "Comprobando actualizaciones..."
+
+#: ../OrangeShare/OrangeControllerBase.cs:489
+msgid "dddd, MMMM d, yyyy"
+msgstr "dddd, MMMM d, yyyy"
+
+#: ../OrangeShare/OrangeControllerBase.cs:495
+msgid "dddd, MMMM d"
+msgstr "dddd, MMMM d"
+
+#: ../OrangeShare/OrangeEventLog.cs:56
+msgid "Recent Events"
+msgstr "Eventos recientes"
+
+#: ../OrangeShare/OrangeEventLog.cs:145
+#: ../OrangeShare/OrangeEventLog.cs:164
+msgid "All Folders"
+msgstr "Todas las carpetas"
+
+#: ../OrangeShare/OrangeOptions.cs:486
+msgid "OptionName"
+msgstr "OptionName"
+
+#: ../OrangeShare/OrangeSetup.cs:83
+msgid "Full Name:"
+msgstr "Nombre completo:"
+
+#: ../OrangeShare/OrangeSetup.cs:98
+msgid "Email:"
+msgstr "Correo electrónico:"
+
+#: ../OrangeShare/OrangeSetup.cs:108
+msgid "Next"
+msgstr "Siguiente"
+
+#: ../OrangeShare/OrangeSetup.cs:129
+msgid "Where's your project hosted?"
+msgstr "¿Dónde está almacenado su proyecto?"
+
+#: ../OrangeShare/OrangeSetup.cs:266
+msgid "Address"
+msgstr "Dirección"
+
+#: ../OrangeShare/OrangeSetup.cs:286
+msgid "Remote Path"
+msgstr "Ruta remota"
+
+#. Cancel button
+#: ../OrangeShare/OrangeSetup.cs:300 ../OrangeShare/OrangeSetup.cs:336
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. Sync button
+#: ../OrangeShare/OrangeSetup.cs:307
+msgid "Add"
+msgstr "Añadir"
+
+#: ../OrangeShare/OrangeSetup.cs:326
+#, csharp-format
+msgid "Adding project ‘{0}’…"
+msgstr "Añadiendo proyecto '{0}'..."
+
+#: ../OrangeShare/OrangeSetup.cs:327
+msgid "This may take a while."
+msgstr "Esto tardara un poco."
+
+#: ../OrangeShare/OrangeSetup.cs:328
+msgid "Are you sure it’s not coffee o'clock?"
+msgstr "¿Seguro que no es la hora del café?"
+
+#: ../OrangeShare/OrangeSetup.cs:332 ../OrangeShare/OrangeSetup.cs:448
+#: ../OrangeShare/OrangeSetup.cs:558
+msgid "Finish"
+msgstr "Finalizar"
+
+#: ../OrangeShare/OrangeSetup.cs:365
+msgid "Something went wrong"
+msgstr "Algo falló"
+
+#: ../OrangeShare/OrangeSetup.cs:413
+msgid "Try Again…"
+msgstr "Intenta de nuevo..."
+
+#: ../OrangeShare/OrangeSetup.cs:432
+#, csharp-format
+msgid "‘{0}’ has been successfully added"
+msgstr "'{0}' Ha sido añadido correctamente"
+
+#: ../OrangeShare/OrangeSetup.cs:438
+msgid "Project successfully added!"
+msgstr "Proyecto añadido con éxito!"
+
+#: ../OrangeShare/OrangeSetup.cs:439
+msgid "Access the files from your OrangeShare folder."
+msgstr "Acceso a los archivos desde tu carpeta de OrangeShare."
+
+#. A button that opens the synced folder
+#: ../OrangeShare/OrangeSetup.cs:442
+msgid "Open Folder"
+msgstr "Abrir carpeta"
+
+#: ../OrangeShare/OrangeSetup.cs:484
+msgid "What's happening next?"
+msgstr "¿Qué está pasando ahora?"
+
+#: ../OrangeShare/OrangeSetup.cs:485
+msgid ""
+"OrangeShare creates a special folder in your personal folder that will keep"
+" track of your projects."
+msgstr ""
+"OrangeShare crea una carpeta especial en tu carpeta personal que mantendrá "
+"un historial de tus proyectos."
+
+#: ../OrangeShare/OrangeSetup.cs:488
+msgid "Skip Tutorial"
+msgstr "Saltar Tutorial"
+
+#: ../OrangeShare/OrangeSetup.cs:493 ../OrangeShare/OrangeSetup.cs:513
+#: ../OrangeShare/OrangeSetup.cs:531
+msgid "Continue"
+msgstr "Continuar"
+
+#: ../OrangeShare/OrangeSetup.cs:509
+msgid "Sharing files with others"
+msgstr "Compartiendo archivos con otros"
+
+#: ../OrangeShare/OrangeSetup.cs:510
+msgid ""
+"All files added to your project folders are synced with the host "
+"automatically, as well as with your collaborators."
+msgstr ""
+"Todos los ficheros añadidos a tus carpetas de proyectos son sincronizadas "
+"automáticamente con el equipo, asi como con tus colaboradores."
+
+#: ../OrangeShare/OrangeSetup.cs:527
+msgid "The status icon is here to help"
+msgstr "El icono de estado esta aquí para ayudarte"
+
+#: ../OrangeShare/OrangeSetup.cs:528
+msgid ""
+"It shows the syncing process status, and contains links to your projects and"
+" the event log."
+msgstr ""
+"Muestra el proceso de sincronización, y contiene enlaces a tus  proyectos y "
+"al registro de eventos."
+
+#: ../OrangeShare/OrangeSetup.cs:545
+msgid "Adding projects to OrangeShare"
+msgstr "Añadiendo proyectos a OrangeShare"
+
+#: ../OrangeShare/OrangeSetup.cs:546
+msgid ""
+"Just click this button when you see it on the web, and the project will be "
+"automatically added:"
+msgstr ""
+"Basta con hacer clic en este botón cuando lo veas en la web, y el proyecto "
+"se agregará automáticamente:"
+
+#: ../OrangeShare/OrangeSetup.cs:549
+msgid ""
+"…or select <b>‘Add Hosted Project…’</b> from the status icon menu to add one"
+" by hand."
+msgstr ""
+"... o seleccione <b>\"Agregar proyecto alojado ... \"</b> en el menú del "
+"icono de estado para agregar uno manualmente."
+
+#: ../OrangeShare/OrangeSetupWindow.cs:44
+msgid "OrangeShare Setup"
+msgstr "Configuración de OrangeShare"
+
+#: ../OrangeShare/OrangeStatusIcon.cs:230
+msgid "No projects yet"
+msgstr "No hay proyectos aún"
+
+#. Opens the wizard to add a new remote folder
+#: ../OrangeShare/OrangeStatusIcon.cs:240
+msgid "Add Hosted Project…"
+msgstr "Añadir proyecto almacenado..."
+
+#: ../OrangeShare/OrangeStatusIcon.cs:264
+msgid "Open Recent Events"
+msgstr "Abrir eventos recientes"
+
+#: ../OrangeShare/OrangeStatusIcon.cs:284
+msgid "Turn Notifications Off"
+msgstr "Desactivar las notificaciones"
+
+#: ../OrangeShare/OrangeStatusIcon.cs:286
+msgid "Turn Notifications On"
+msgstr "Activar las notificaciones"
+
+#. A menu item that quits the application
+#: ../OrangeShare/OrangeStatusIcon.cs:313
+msgid "Quit"
+msgstr "Salir"
+
+

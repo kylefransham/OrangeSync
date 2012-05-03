@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Gettext.CsUtils">
+</Property><Property Name="Solution File" Value="C:\Users\franshamk.INTERNAL\ocss\OrangeShare\OrangeShare\Windows\tools\gettext-cs-utils\Gettext.CsUtils\Gettext.CsUtils.sln">
+</Property><Property Name="Date" Value="May-02-12">
+</Property><Property Name="Time" Value="21:11">
+</Property></Properties><Event ErrorLevel="1" Project="Gnu.Getopt" Source="Lib\Gnu.Getopt\Gnu.Getopt.csproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="Gnu.Getopt" Source="Lib\Gnu.Getopt\Gnu.Getopt.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gnu.Getopt" Source="Lib\Gnu.Getopt\Gnu.Getopt.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.AspExtract" Source="Tools\Gettext.AspExtract\Gettext.AspExtract.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.AspExtract" Source="Tools\Gettext.AspExtract\Gettext.AspExtract.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Msgfmt" Source="Tools\Gettext.Msgfmt\Gettext.Msgfmt.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Msgfmt" Source="Tools\Gettext.Msgfmt\Gettext.Msgfmt.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.ResourcesReplacer" Source="Tools\Gettext.ResourcesReplacer\Gettext.ResourcesReplacer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.ResourcesReplacer" Source="Tools\Gettext.ResourcesReplacer\Gettext.ResourcesReplacer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Cs" Source="Core\Gettext.Cs\Gettext.Cs.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Cs" Source="Core\Gettext.Cs\Gettext.Cs.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gnu.Gettext" Source="Lib\Gnu.Gettext\Gnu.Gettext.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gnu.Gettext" Source="Lib\Gnu.Gettext\Gnu.Gettext.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Cs.Web" Source="Core\Gettext.Cs.Web\Gettext.Cs.Web.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Cs.Web" Source="Core\Gettext.Cs.Web\Gettext.Cs.Web.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.DatabaseResourceGenerator" Source="Tools\Gettext.DatabaseResourceGenerator\Gettext.DatabaseResourceGenerator.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.DatabaseResourceGenerator" Source="Tools\Gettext.DatabaseResourceGenerator\Gettext.DatabaseResourceGenerator.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Console" Source="Samples\Gettext.Samples.Console\Gettext.Samples.Console.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Samples.Console" Source="Samples\Gettext.Samples.Console\Gettext.Samples.Console.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Cs.Tests" Source="Core\Gettext.Cs.Tests\Gettext.Cs.Tests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Cs.Tests" Source="Core\Gettext.Cs.Tests\Gettext.Cs.Tests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Iconv" Source="Tools\Gettext.Iconv\Gettext.Iconv.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Iconv" Source="Tools\Gettext.Iconv\Gettext.Iconv.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Mvc" Source="Samples\Gettext.Samples.Mvc\Gettext.Samples.Mvc.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Samples.Mvc" Source="Samples\Gettext.Samples.Mvc\Gettext.Samples.Mvc.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Database" Source="Samples\Gettext.Samples.Database\Gettext.Samples.Database.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Samples.Database" Source="Samples\Gettext.Samples.Database\Gettext.Samples.Database.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Spanish" Source="Samples\Gettext.Samples.Spanish\Gettext.Samples.Spanish.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Gettext.Samples.Spanish" Source="Samples\Gettext.Samples.Spanish\Gettext.Samples.Spanish.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Gettext.CsUtils.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Gettext.CsUtils.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Gettext.AspExtract" Source="Tools\Gettext.AspExtract\Gettext.AspExtract.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Msgfmt" Source="Tools\Gettext.Msgfmt\Gettext.Msgfmt.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.ResourcesReplacer" Source="Tools\Gettext.ResourcesReplacer\Gettext.ResourcesReplacer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.DatabaseResourceGenerator" Source="Tools\Gettext.DatabaseResourceGenerator\Gettext.DatabaseResourceGenerator.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Iconv" Source="Tools\Gettext.Iconv\Gettext.Iconv.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gnu.Getopt" Source="Lib\Gnu.Getopt\Gnu.Getopt.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gnu.Gettext" Source="Lib\Gnu.Gettext\Gnu.Gettext.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Cs" Source="Core\Gettext.Cs\Gettext.Cs.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Cs.Web" Source="Core\Gettext.Cs.Web\Gettext.Cs.Web.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Cs.Tests" Source="Core\Gettext.Cs.Tests\Gettext.Cs.Tests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Console" Source="Samples\Gettext.Samples.Console\Gettext.Samples.Console.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Mvc" Source="Samples\Gettext.Samples.Mvc\Gettext.Samples.Mvc.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Database" Source="Samples\Gettext.Samples.Database\Gettext.Samples.Database.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Gettext.Samples.Spanish" Source="Samples\Gettext.Samples.Spanish\Gettext.Samples.Spanish.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

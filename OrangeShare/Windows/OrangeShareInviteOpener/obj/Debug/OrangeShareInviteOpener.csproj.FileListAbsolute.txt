@@ -1,0 +1,5 @@
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\bin\OrangeShareInviteOpener.exe
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\bin\OrangeShareInviteOpener.pdb
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\OrangeShare\Windows\OrangeShareInviteOpener\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\OrangeShare\Windows\OrangeShareInviteOpener\obj\Debug\OrangeShareInviteOpener.exe
+C:\Users\franshamk.INTERNAL\ocss\OrangeShare\OrangeShare\Windows\OrangeShareInviteOpener\obj\Debug\OrangeShareInviteOpener.pdb
